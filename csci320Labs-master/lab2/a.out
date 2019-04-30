@@ -1,0 +1,64 @@
+#! /usr/local/Cellar/icarus-verilog/10.2_1/bin/vvp
+:ivl_version "10.2 (stable)" "(v10_2)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "system";
+:vpi_module "vhdl_sys";
+:vpi_module "v2005_math";
+:vpi_module "va_math";
+S_0x7f9932e06ed0 .scope module, "mux5tb" "mux5tb" 2 1;
+ .timescale 0 0;
+v0x7f9932e187f0_0 .var "brnch", 31 0;
+v0x7f9932e18890_0 .var "except", 31 0;
+v0x7f9932e18930_0 .var "jalr", 31 0;
+v0x7f9932e18a00_0 .var "jump", 31 0;
+v0x7f9932e18ab0_0 .var "pc", 31 0;
+v0x7f9932e18b80_0 .net "res", 31 0, L_0x7f9932e18c30;  1 drivers
+S_0x7f9932e06830 .scope module, "mux5test" "mux5" 2 6, 3 1 0, S_0x7f9932e06ed0;
+ .timescale 0 0;
+    .port_info 0 /INPUT 32 "pc"
+    .port_info 1 /INPUT 32 "jalr"
+    .port_info 2 /INPUT 32 "branch"
+    .port_info 3 /INPUT 32 "jump"
+    .port_info 4 /INPUT 32 "exception"
+    .port_info 5 /OUTPUT 32 "result"
+L_0x7f9932e18c30 .functor BUFZ 32, v0x7f9932e18ab0_0, C4<00000000000000000000000000000000>, C4<00000000000000000000000000000000>, C4<00000000000000000000000000000000>;
+L_0x1069bd008 .functor BUFT 1, C4<0000000000000000000000000000000z>, C4<0>, C4<0>, C4<0>;
+v0x7f9932e06c20_0 .net "branch", 31 0, L_0x1069bd008;  1 drivers
+v0x7f9932e183c0_0 .net "exception", 31 0, v0x7f9932e18890_0;  1 drivers
+v0x7f9932e18460_0 .net "jalr", 31 0, v0x7f9932e18930_0;  1 drivers
+v0x7f9932e18510_0 .net "jump", 31 0, v0x7f9932e18a00_0;  1 drivers
+v0x7f9932e185c0_0 .net "pc", 31 0, v0x7f9932e18ab0_0;  1 drivers
+v0x7f9932e186b0_0 .net "result", 31 0, L_0x7f9932e18c30;  alias, 1 drivers
+    .scope S_0x7f9932e06ed0;
+T_0 ;
+    %vpi_call 2 9 "$monitor", $time, ": pc = %h, jalr = %h, branch = %h, jump = %h, except = %h, result = %h", v0x7f9932e18ab0_0, v0x7f9932e18930_0, v0x7f9932e187f0_0, v0x7f9932e18a00_0, v0x7f9932e18890_0, v0x7f9932e18b80_0 {0 0 0};
+    %pushi/vec4 4096, 0, 32;
+    %store/vec4 v0x7f9932e18ab0_0, 0, 32;
+    %pushi/vec4 271134772, 0, 32;
+    %store/vec4 v0x7f9932e18930_0, 0, 32;
+    %pushi/vec4 69, 0, 32;
+    %store/vec4 v0x7f9932e187f0_0, 0, 32;
+    %pushi/vec4 22, 0, 32;
+    %store/vec4 v0x7f9932e18a00_0, 0, 32;
+    %pushi/vec4 0, 0, 32;
+    %store/vec4 v0x7f9932e18890_0, 0, 32;
+    %delay 10, 0;
+    %pushi/vec4 4120, 0, 32;
+    %store/vec4 v0x7f9932e18ab0_0, 0, 32;
+    %pushi/vec4 30226, 0, 32;
+    %store/vec4 v0x7f9932e18930_0, 0, 32;
+    %pushi/vec4 34929, 0, 32;
+    %store/vec4 v0x7f9932e187f0_0, 0, 32;
+    %pushi/vec4 2113590, 0, 32;
+    %store/vec4 v0x7f9932e18a00_0, 0, 32;
+    %pushi/vec4 537919488, 0, 32;
+    %store/vec4 v0x7f9932e18890_0, 0, 32;
+    %end;
+    .thread T_0;
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    "mux5tb.v";
+    "mux5.v";
